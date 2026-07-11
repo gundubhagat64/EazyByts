@@ -1,0 +1,39 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:#0b0b0b;
+  color:white;
+  overflow-x:hidden;
+}
+
+a{
+  color:white;
+  text-decoration:none;
+}
+
+button{
+  cursor:pointer;
+  transition:.3s;
+}
+
+button:hover{
+  transform:scale(1.05);
+}
+
+::-webkit-scrollbar{
+  width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+  background:#e50914;
+  border-radius:10px;
+}
+
+::-webkit-scrollbar-track{
+  background:#111;
+}
