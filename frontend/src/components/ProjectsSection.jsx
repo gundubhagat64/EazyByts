@@ -10,23 +10,23 @@ function ProjectsSection() {
   }, []);
 
   const fetchProjects = async () => {
-  const { data, error } = await supabase
-    .from("projects")
-    .select("*")
-    .order("id", { ascending: false });
+    const { data, error } = await supabase
+      .from("projects")
+      .select("*")
+      .order("id", { ascending: false });
 
-  console.log("DATA:", data);
-  console.log("ERROR:", error);
+    if (error) {
+      console.log(error);
+      return;
+    }
 
-  if (error) return;
-
-  setProjects(data);
-};
+    setProjects(data);
+  };
 
   return (
     <section
       style={{
-        padding: "100px 8%",
+        padding: "80px 20px",
         background: "#090909",
         color: "white",
       }}
@@ -37,9 +37,9 @@ function ProjectsSection() {
         transition={{ duration: 0.8 }}
         style={{
           textAlign: "center",
-          fontSize: "50px",
+          fontSize: "clamp(2rem,6vw,50px)",
           color: "#E50914",
-          marginBottom: "60px",
+          marginBottom: "50px",
         }}
       >
         My Projects
@@ -49,7 +49,8 @@ function ProjectsSection() {
         <h2
           style={{
             textAlign: "center",
-            color: "#999",
+            color: "#888",
+            marginBottom: "40px",
           }}
         >
           No Projects Found
@@ -58,41 +59,52 @@ function ProjectsSection() {
 
       <div
         style={{
+          maxWidth: "1200px",
+          margin: "0 auto",
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit,minmax(330px,1fr))",
-          gap: "35px",
+          gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))",
+          gap: "25px",
         }}
       >
         {projects.map((project) => (
           <motion.div
             key={project.id}
-            whileHover={{ scale: 1.05, y: -10 }}
+            whileHover={{
+              scale: 1.03,
+              y: -8,
+            }}
             transition={{ duration: 0.3 }}
             style={{
               background: "#111",
               borderRadius: "18px",
               overflow: "hidden",
-              boxShadow: "0 0 25px rgba(229,9,20,.15)",
+              boxShadow: "0 0 20px rgba(229,9,20,.18)",
             }}
           >
             <div
               style={{
                 height: "180px",
-                background: "linear-gradient(135deg,#E50914,#4b0000)",
+                background:
+                  "linear-gradient(135deg,#E50914,#4b0000)",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                fontSize: "60px",
+                fontSize: "clamp(40px,10vw,60px)",
               }}
             >
               💻
             </div>
 
-            <div style={{ padding: "25px" }}>
+            <div
+              style={{
+                padding: "22px",
+              }}
+            >
               <h2
                 style={{
                   color: "#E50914",
                   marginBottom: "15px",
+                  fontSize: "clamp(20px,4vw,28px)",
                 }}
               >
                 {project.title}
@@ -102,6 +114,7 @@ function ProjectsSection() {
                 style={{
                   color: "#d1d5db",
                   lineHeight: "1.8",
+                  fontSize: "clamp(14px,3vw,17px)",
                 }}
               >
                 {project.description}

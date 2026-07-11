@@ -1,19 +1,12 @@
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
-import {
-  FaGithub,
-  FaLinkedin,
-  FaEnvelope,
-} from "react-icons/fa";
-
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import profile from "../assets/gundu.jpg";
-
 
 function Hero() {
   return (
     <section
       style={{
-        paddingTop: "150px",
         minHeight: "100vh",
         display: "flex",
         justifyContent: "center",
@@ -23,7 +16,7 @@ function Hero() {
           "radial-gradient(circle at top,#1b0000,#090909,#000)",
         color: "white",
         textAlign: "center",
-        padding: "20px",
+        padding: "120px 20px 40px",
       }}
     >
       <motion.img
@@ -32,28 +25,29 @@ function Hero() {
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ duration: 0.8 }}
-        whileHover={{ scale: 1.08 }}
+        whileHover={{ scale: 1.05 }}
         style={{
-          width: "210px",
-          height: "210px",
+          width: "clamp(150px,35vw,220px)",
+          height: "clamp(150px,35vw,220px)",
           objectFit: "cover",
           borderRadius: "50%",
-          border: "5px solid #150830",
-          boxShadow: "0 0 50px rgba(242, 9, 20, 0.8)",
+          border: "5px solid #E50914",
+          boxShadow: "0 0 35px rgba(229,9,20,.7)",
           marginBottom: "25px",
         }}
       />
 
       <motion.h1
-        initial={{ y: -50, opacity: 0 }}
+        initial={{ y: -40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1 }}
         style={{
-          fontSize: "65px",
+          fontSize: "clamp(2.2rem,8vw,4.5rem)",
           color: "#E50914",
-          textShadow:
-            "0 0 20px #E50914,0 0 40px #E50914",
-          letterSpacing: "5px",
+          textShadow: "0 0 20px #E50914",
+          margin: 0,
+          lineHeight: "1.2",
+          padding: "0 10px",
         }}
       >
         GUNDU BHAGAT
@@ -73,88 +67,82 @@ function Hero() {
         speed={50}
         repeat={Infinity}
         style={{
-          fontSize: "28px",
+          fontSize: "clamp(18px,4vw,30px)",
           color: "#ddd",
-          marginTop: "10px",
+          marginTop: "15px",
+          textAlign: "center",
+          padding: "0 10px",
         }}
       />
 
       <p
         style={{
-          maxWidth: "700px",
+          maxWidth: "750px",
+          width: "100%",
           marginTop: "25px",
-          color: "#bdbdbd",
+          color: "#cfcfcf",
           lineHeight: "1.8",
-          fontSize: "17px",
+          fontSize: "clamp(14px,3.5vw,18px)",
+          padding: "0 15px",
         }}
       >
-        Passionate Computer Engineering student with
-        hands-on experience in React, Node.js,
-        Express.js and MongoDB. I love building modern,
-        responsive and scalable web applications with
-        clean UI and smooth user experience.
+        Passionate Computer Engineering student with hands-on experience in
+        React, Node.js, Express.js and Supabase. I enjoy building modern,
+        responsive and scalable web applications with clean UI and smooth user
+        experience.
       </p>
 
       <div
         style={{
           display: "flex",
-          gap: "20px",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          gap: "15px",
           marginTop: "35px",
         }}
       >
-        <motion.button
-          whileHover={{
-            scale: 1.08,
-            boxShadow: "0 0 30px #E50914",
-          }}
-          whileTap={{ scale: 0.95 }}
-          style={{
-            padding: "15px 35px",
-            borderRadius: "40px",
-            background: "#E50914",
-            color: "white",
-            border: "none",
-            fontSize: "17px",
-            fontWeight: "bold",
-          }}
+        <a
+          href="/Gundu_Bhagat_Resume%20(2).pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ textDecoration: "none" }}
         >
-        
-        </motion.button>
-
-     <a
-  href="/Gundu_Bhagat_Resume%20(2).pdf"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  <motion.button
-    whileHover={{ scale: 1.08 }}
-    style={{
-      padding: "15px 35px",
-      borderRadius: "40px",
-      border: "2px solid #E50914",
-      background: "transparent",
-      color: "white",
-      cursor: "pointer",
-    }}
-  >
-    Download CV
-  </motion.button>
-</a>
+          <motion.button
+            whileHover={{
+              scale: 1.05,
+              background: "#E50914",
+              color: "white",
+            }}
+            style={{
+              padding: "15px 30px",
+              width: "220px",
+              maxWidth: "90vw",
+              borderRadius: "40px",
+              border: "2px solid #E50914",
+              background: "transparent",
+              color: "white",
+              cursor: "pointer",
+              fontSize: "16px",
+              fontWeight: "bold",
+            }}
+          >
+            Download Resume
+          </motion.button>
+        </a>
       </div>
 
       <div
         style={{
           display: "flex",
-          gap: "35px",
+          justifyContent: "center",
+          flexWrap: "wrap",
+          gap: "30px",
           marginTop: "45px",
-          fontSize: "35px",
+          fontSize: "clamp(28px,7vw,38px)",
         }}
       >
         <motion.a
-          whileHover={{
-            scale: 1.3,
-            color: "#E50914",
-          }}
+          whileHover={{ scale: 1.25, color: "#E50914" }}
           href="https://github.com/gundubhagat64"
           target="_blank"
           rel="noreferrer"
@@ -164,9 +152,7 @@ function Hero() {
         </motion.a>
 
         <motion.a
-          whileHover={{
-            scale: 1.3,
-          }}
+          whileHover={{ scale: 1.25 }}
           href="https://www.linkedin.com/in/gundubhagat2004/"
           target="_blank"
           rel="noreferrer"
@@ -176,10 +162,7 @@ function Hero() {
         </motion.a>
 
         <motion.a
-          whileHover={{
-            scale: 1.3,
-            color: "#E50914",
-          }}
+          whileHover={{ scale: 1.25, color: "#E50914" }}
           href="mailto:gundubhagat64@gmail.com"
           style={{ color: "white" }}
         >

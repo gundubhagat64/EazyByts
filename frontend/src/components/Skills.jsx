@@ -15,7 +15,7 @@ function Skills() {
   return (
     <section
       style={{
-        padding: "100px 10%",
+        padding: "80px 20px",
         background: "#0d0d0d",
         color: "white",
       }}
@@ -27,55 +27,85 @@ function Skills() {
         style={{
           textAlign: "center",
           color: "#E50914",
-          fontSize: "50px",
-          marginBottom: "60px",
+          fontSize: "clamp(2rem,6vw,50px)",
+          marginBottom: "50px",
         }}
       >
         My Skills
       </motion.h1>
 
-      {skills.map((skill, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, x: -80 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: index * 0.1 }}
-          style={{ marginBottom: "30px" }}
-        >
-          <div
+      <div
+        style={{
+          maxWidth: "900px",
+          margin: "0 auto",
+        }}
+      >
+        {skills.map((skill, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, x: -80 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{
+              duration: 0.6,
+              delay: index * 0.1,
+            }}
             style={{
-              display: "flex",
-              justifyContent: "space-between",
-              marginBottom: "10px",
+              marginBottom: "28px",
             }}
           >
-            <h3>{skill.name}</h3>
-            <span>{skill.level}</span>
-          </div>
-
-          <div
-            style={{
-              width: "100%",
-              height: "12px",
-              background: "#333",
-              borderRadius: "20px",
-              overflow: "hidden",
-            }}
-          >
-            <motion.div
-              initial={{ width: 0 }}
-              whileInView={{ width: skill.level }}
-              transition={{ duration: 1.5 }}
+            <div
               style={{
-                height: "100%",
-                background:
-                  "linear-gradient(90deg,#E50914,#ff4d4d)",
-                borderRadius: "20px",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginBottom: "10px",
+                flexWrap: "wrap",
+                gap: "8px",
               }}
-            />
-          </div>
-        </motion.div>
-      ))}
+            >
+              <h3
+                style={{
+                  margin: 0,
+                  fontSize: "clamp(16px,4vw,22px)",
+                }}
+              >
+                {skill.name}
+              </h3>
+
+              <span
+                style={{
+                  color: "#ddd",
+                  fontSize: "clamp(14px,3vw,18px)",
+                }}
+              >
+                {skill.level}
+              </span>
+            </div>
+
+            <div
+              style={{
+                width: "100%",
+                height: "12px",
+                background: "#333",
+                borderRadius: "20px",
+                overflow: "hidden",
+              }}
+            >
+              <motion.div
+                initial={{ width: 0 }}
+                whileInView={{ width: skill.level }}
+                transition={{ duration: 1.5 }}
+                style={{
+                  height: "100%",
+                  background:
+                    "linear-gradient(90deg,#E50914,#ff4d4d)",
+                  borderRadius: "20px",
+                }}
+              />
+            </div>
+          </motion.div>
+        ))}
+      </div>
     </section>
   );
 }
